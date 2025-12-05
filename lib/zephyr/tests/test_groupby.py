@@ -26,18 +26,6 @@ def ensure_ray(ray_cluster):
     pass
 
 
-@pytest.fixture(
-    params=[
-        pytest.param(create_backend("sync"), id="sync"),
-        pytest.param(create_backend("threadpool", max_parallelism=2), id="thread"),
-        pytest.param(create_backend("ray", max_parallelism=2), id="ray"),
-    ]
-)
-def backend(request):
-    """Parametrized fixture providing all backend types."""
-    return request.param
-
-
 @pytest.fixture
 def large_document_dataset():
     """Generate 500 documents: 100 unique content values, each appears 5 times."""

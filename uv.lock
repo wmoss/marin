@@ -1384,8 +1384,8 @@ version = "7.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pywin32", marker = "sys_platform == 'win32' or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-cuda12') or (extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cuda12' and extra == 'extra-5-marin-tpu') or (extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
-    { name = "requests" },
-    { name = "urllib3" },
+    { name = "requests", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "urllib3", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/91/9b/4a2ea29aeba62471211598dac5d96825bb49348fa07e906ea930394a83ce/docker-7.1.0.tar.gz", hash = "sha256:ad8c70e6e3f8926cb8a92619b832b4ea5299e2831c14284663184e200546fa6c", size = 117834, upload-time = "2024-05-23T11:13:57.216Z" }
 wheels = [
@@ -1574,7 +1574,7 @@ name = "fastcore"
 version = "1.8.16"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "packaging" },
+    { name = "packaging", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/08/46/c581a997957c30a71f18fddbe79b37968b6d68a9d91f0a0c86b3ecd0adcd/fastcore-1.8.16.tar.gz", hash = "sha256:0d8d5c11d88b36fbc4728a341ffcedcfc62220fbe5b14b442bccb512043d84c9", size = 83669, upload-time = "2025-11-07T23:24:41.944Z" }
 wheels = [
@@ -1973,8 +1973,8 @@ name = "ghapi"
 version = "1.0.8"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "fastcore" },
-    { name = "packaging" },
+    { name = "fastcore", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "packaging", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/13/45/714e944ca610758c5fd7cece1aea366fb88e318983d6a8e52857598b5b09/ghapi-1.0.8.tar.gz", hash = "sha256:9ab02dcd06b3c622ea2d9b21a2efee316076a744ce7847251a2fe9f542f381df", size = 72049, upload-time = "2025-09-16T23:57:48.847Z" }
 wheels = [
@@ -2428,8 +2428,8 @@ name = "grpclib"
 version = "0.4.8"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "h2" },
-    { name = "multidict" },
+    { name = "h2", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "multidict", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/19/75/0f0d3524b38b35e5cd07334b754aa9bd0570140ad982131b04ebfa3b0374/grpclib-0.4.8.tar.gz", hash = "sha256:d8823763780ef94fed8b2c562f7485cf0bbee15fc7d065a640673667f7719c9a", size = 62793, upload-time = "2025-05-04T16:27:30.051Z" }
 wheels = [
@@ -2462,8 +2462,8 @@ name = "h2"
 version = "4.3.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "hpack" },
-    { name = "hyperframe" },
+    { name = "hpack", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "hyperframe", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/1d/17/afa56379f94ad0fe8defd37d6eb3f89a25404ffc71d4d848893d270325fc/h2-4.3.0.tar.gz", hash = "sha256:6c59efe4323fa18b47a632221a1888bd7fde6249819beda254aeca909f221bf1", size = 2152026, upload-time = "2025-08-23T18:12:19.778Z" }
 wheels = [
@@ -4604,20 +4604,20 @@ name = "modal"
 version = "1.2.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "aiohttp" },
-    { name = "cbor2" },
-    { name = "certifi" },
-    { name = "click" },
-    { name = "grpclib" },
-    { name = "protobuf" },
-    { name = "rich" },
-    { name = "synchronicity" },
-    { name = "toml" },
-    { name = "typer" },
-    { name = "types-certifi" },
-    { name = "types-toml" },
-    { name = "typing-extensions" },
-    { name = "watchfiles" },
+    { name = "aiohttp", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "cbor2", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "certifi", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "click", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "grpclib", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "protobuf", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "rich", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "synchronicity", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "toml", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "typer", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "types-certifi", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "types-toml", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "typing-extensions", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "watchfiles", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/91/b1/7bd589a3e1cc1ffc3fc2c05d1fab4b02459552d1ed416e00f19969e54f32/modal-1.2.4.tar.gz", hash = "sha256:5acb4a57a4bc857944579a3cf36e93f38d39499837628e9acf591d45d0c88c89", size = 645018, upload-time = "2025-11-21T23:56:45.208Z" }
 wheels = [
@@ -7748,6 +7748,18 @@ wheels = [
 ]
 
 [[package]]
+name = "substrait"
+version = "0.24.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "protobuf" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/40/99/48c601b6627609ffaea473f603006ff1ded88189ccd1260f58d9a340d88c/substrait-0.24.2.tar.gz", hash = "sha256:743cc352e96b0927b2cd37cd5a8fdac0a96a68df9600bd104fc36aebd222a836", size = 185019, upload-time = "2025-09-15T14:58:29.678Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d3/9c/a67b8d3e10e0bb26d68325bbd3752422aa8dfcc324f2fa18adf0e6acfb15/substrait-0.24.2-py3-none-any.whl", hash = "sha256:d1d475833566fa9d67eed3273456883c0568486ccced92b524b31709d2817e19", size = 155429, upload-time = "2025-09-15T14:58:28.031Z" },
+]
+
+[[package]]
 name = "super-collections"
 version = "0.6.2"
 source = { registry = "https://pypi.org/simple" }
@@ -7764,20 +7776,20 @@ name = "swebench"
 version = "4.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "beautifulsoup4" },
-    { name = "chardet" },
-    { name = "datasets" },
-    { name = "docker" },
-    { name = "ghapi" },
-    { name = "gitpython" },
-    { name = "modal" },
-    { name = "pre-commit" },
-    { name = "python-dotenv" },
-    { name = "requests" },
-    { name = "rich" },
-    { name = "tenacity" },
-    { name = "tqdm" },
-    { name = "unidiff" },
+    { name = "beautifulsoup4", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "chardet", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "datasets", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "docker", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "ghapi", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "gitpython", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "modal", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "pre-commit", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "python-dotenv", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "requests", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "rich", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "tenacity", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "tqdm", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
+    { name = "unidiff", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/24/e1/c997299ad7bf088876d30398203aa1eed7dec897670dc1aa35b1d748ffcc/swebench-4.1.0.tar.gz", hash = "sha256:5aaa6a92c2db1aa64892d28a47483ca46a45a15cf1d2df673d7744f71811dc9a", size = 134341, upload-time = "2025-09-11T02:58:00.447Z" }
 wheels = [
@@ -7801,7 +7813,7 @@ name = "synchronicity"
 version = "0.10.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "typing-extensions" },
+    { name = "typing-extensions", marker = "sys_platform != 'darwin' or extra == 'extra-5-marin-cuda12' or (extra != 'extra-5-marin-cpu' and extra != 'extra-5-marin-tpu') or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-crawl' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-cpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu') or (extra == 'extra-5-marin-crawl' and extra == 'extra-5-marin-tpu' and extra == 'group-5-marin-dev') or (extra == 'extra-5-marin-tpu' and extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/fd/32/f2d3fa0021dcd185b20e8b171cbae68065b1e43b89cecf310861679e4e7f/synchronicity-0.10.5.tar.gz", hash = "sha256:6bdb3ea99f327e2d5602ad134458244ddaf331d56951634e5424df1edb07fe0d", size = 57264, upload-time = "2025-11-27T16:11:57.876Z" }
 wheels = [
@@ -8632,6 +8644,21 @@ wheels = [
 ]
 
 [[package]]
+name = "vortex-data"
+version = "0.56.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pyarrow" },
+    { name = "substrait" },
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/02/a6/13c89dbff9dca6399198cfc55308ca25f6f209ab53f4f970dc1bde9c569f/vortex_data-0.56.0-cp311-abi3-macosx_10_12_x86_64.whl", hash = "sha256:f1d2e4a784779ecba8fd3a5d01ccb93d78251ff4e3215d52d8815e1cfb04773d", size = 11541473, upload-time = "2025-11-17T16:25:50.288Z" },
+    { url = "https://files.pythonhosted.org/packages/9d/ef/486742d2a8b4f1f1ae62cf5a046c36db24048fdf28a3e960daaa7df2f808/vortex_data-0.56.0-cp311-abi3-macosx_11_0_arm64.whl", hash = "sha256:a9215e1f9f0c656ba1ec854efd2deabd27c415405680a69567259cc02f35467f", size = 11026508, upload-time = "2025-11-17T16:25:52.69Z" },
+    { url = "https://files.pythonhosted.org/packages/23/df/cc67aaba87dd9291705afd44880448ccc9753554839d6bc6a385aa1bd601/vortex_data-0.56.0-cp311-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:9aa38a4d00ca01114a77555d963414995fe4ce9e61169b169c4a40babc4cc3a8", size = 10152486, upload-time = "2025-11-17T16:25:55.396Z" },
+    { url = "https://files.pythonhosted.org/packages/f7/24/c3d1e2142d56a2e99fb651779ab8744a50fe30dd47a8e5b593b52ef97074/vortex_data-0.56.0-cp311-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:4ab3253c436bfa0bf038e4db2722f5369b8f6b8e415654e1a4b169b5480162fa", size = 10740907, upload-time = "2025-11-17T16:25:57.577Z" },
+]
+
+[[package]]
 name = "w3lib"
 version = "2.3.1"
 source = { registry = "https://pypi.org/simple" }
@@ -9281,6 +9308,7 @@ dependencies = [
     { name = "numpy", version = "2.3.5", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'group-5-marin-dev' or extra != 'extra-5-marin-crawl' or (extra == 'extra-5-marin-cpu' and extra == 'extra-5-marin-cuda12') or (extra == 'extra-5-marin-cuda12' and extra == 'extra-5-marin-tpu') or (extra == 'extra-8-levanter-gpu' and extra == 'extra-8-levanter-tpu')" },
     { name = "tqdm-loggable" },
     { name = "typing-extensions" },
+    { name = "vortex-data" },
     { name = "zstandard" },
 ]
 
@@ -9307,6 +9335,7 @@ requires-dist = [
     { name = "numpy", specifier = ">=2.0" },
     { name = "tqdm-loggable", specifier = ">=0.2" },
     { name = "typing-extensions", specifier = ">=4.0" },
+    { name = "vortex-data", specifier = ">=0.1.0" },
     { name = "zstandard", specifier = ">=0.18.0" },
 ]
 
