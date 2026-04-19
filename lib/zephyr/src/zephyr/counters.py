@@ -23,7 +23,7 @@ Outside of a Zephyr worker context, all calls are silent no-ops.
 
 import logging
 
-from zephyr.execution import _worker_ctx_var
+from zephyr.execution import _worker_ctx_var, PROCESSED_BYTES_COUNTER
 
 logger = logging.getLogger(__name__)
 
@@ -35,7 +35,9 @@ def increment(name: str, value: int = 1) -> None:
     """
     worker = _worker_ctx_var.get()
     if worker is None:
+        logger.debug(f"Incrementing counter {name} with value {value} outside a Zephyr worker context")
         return
+    logger.debug(f"Incrementing counter {name} with value {value}")
     worker.increment_counter(name, value)
 
 
@@ -48,3 +50,7 @@ def get_counters() -> dict[str, int]:
     if worker is None:
         return {}
     return worker.get_counter_snapshot().counters
+
+def increment_bytes_processed(bytes: int) -> None:
+    """Increment the bytes processed counter by ``bytes``."""
+    increment(PROCESSED_BYTES_COUNTER, bytes)

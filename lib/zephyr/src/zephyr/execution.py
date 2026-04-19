@@ -63,6 +63,8 @@ logger = logging.getLogger(__name__)
 # (heartbeat timeout / OOM).
 MAX_SHARD_FAILURES = 3
 
+PROCESSED_BYTES_COUNTER = "processed_bytes"
+"""Counter name: sum of bytes successfully processed by a worker."""
 
 @dataclass(frozen=True)
 class PickleDiskChunk:
@@ -385,6 +387,7 @@ class ZephyrCoordinator:
         self._is_last_stage: bool = False
         self._initialized: bool = False
         self._pipeline_running: bool = False
+        self._total_bytes: int | None = None
 
         # Lock for accessing coordinator state from background thread
         self._lock = threading.Lock()
@@ -397,6 +400,7 @@ class ZephyrCoordinator:
         chunk_prefix: str,
         coordinator_handle: ActorHandle,
         no_workers_timeout: float = 60.0,
+        total_bytes: int | None = None,
     ) -> None:
         """Initialize coordinator for push-based worker registration.
 
@@ -411,7 +415,7 @@ class ZephyrCoordinator:
         self._chunk_prefix = chunk_prefix
         self._self_handle = coordinator_handle
         self._no_workers_timeout = no_workers_timeout
-
+        self._total_bytes = total_bytes
         logger.info("Coordinator initialized")
 
         # Start coordinator background loop (heartbeat checking only)
@@ -500,8 +504,15 @@ class ZephyrCoordinator:
             retried = {idx: att for idx, att in self._task_attempts.items() if att > 0}
         alive = sum(1 for s in states if s in {WorkerState.READY, WorkerState.BUSY})
         dead = sum(1 for s in states if s in {WorkerState.FAILED, WorkerState.DEAD})
+        if self._total_bytes is not None:
+            counters = self.get_counters()
+            processed_gb = counters.get(PROCESSED_BYTES_COUNTER, 0) / (1024 ** 3)
+            total_gb = self._total_bytes / (1024 ** 3)
+            percentage_str = f", {processed_gb:.2f} GB processed / {total_gb:.2f} GB total, {(processed_gb / total_gb * 100):.1f}% complete"
+        else:
+            percentage_str = ""
         logger.info(
-            "[%s] [%s] %d/%d complete, %d in-flight, %d queued, %d/%d workers alive, %d dead",
+            "[%s] [%s] %d/%d complete, %d in-flight, %d queued, %d/%d workers alive, %d dead%s",
             self._execution_id,
             self._stage_name,
             self._completed_shards,
@@ -511,6 +522,7 @@ class ZephyrCoordinator:
             alive,
             len(self._worker_handles),
             dead,
+            percentage_str,
         )
         if retried:
             logger.warning("[%s] Shards retried (shard: attempts): %s", self._execution_id, retried)
@@ -1364,6 +1376,7 @@ class _CoordinatorJobConfig:
     worker_resources: ResourceConfig
     name: str
     pipeline_id: int
+    total_bytes: int | None
 
 
 def _run_coordinator_job(config_path: str, result_path: str) -> None:
@@ -1406,6 +1419,7 @@ def _run_coordinator_job(config_path: str, result_path: str) -> None:
         config.chunk_storage_prefix,
         coordinator,
         config.no_workers_timeout,
+        config.total_bytes,
     ).result()
 
     # Create workers (child jobs)
@@ -1507,6 +1521,7 @@ class ZephyrContext:
         max_execution_retries: Maximum number of times to retry a pipeline execution after
             an infrastructure failure (e.g., coordinator VM preemption). Application errors
             (ZephyrWorkerError) are never retried. Defaults to 100.
+        total_bytes: Total number of bytes to process. If None, the total number of bytes is not tracked.
     """
 
     client: Client | None = None
@@ -1518,6 +1533,7 @@ class ZephyrContext:
     no_workers_timeout: float | None = None
     # NOTE: 100 is fairly aggressive but it fits the preemptible env better
     max_execution_retries: int = 100
+    total_bytes: int | None = None
 
     # Shared data staged by put(), uploaded to disk at the start of execute()
     _shared_data: dict[str, Any] = field(default_factory=dict, repr=False)
@@ -1636,6 +1652,7 @@ class ZephyrContext:
                     worker_resources=self.resources,
                     name=self.name,
                     pipeline_id=self._pipeline_id,
+                    total_bytes=self.total_bytes,
                 )
                 ensure_parent_dir(config_path)
                 with open_url(config_path, "wb") as f:

@@ -21,7 +21,7 @@ from packaging.version import Version
 from marin.execution.executor import THIS_OUTPUT_PATH
 from marin.execution.step_spec import StepSpec
 from marin.utilities.validation_utils import write_provenance_json
-from zephyr import Dataset, ZephyrContext
+from zephyr import Dataset, ZephyrContext, counters
 from zephyr.writers import atomic_rename
 from rigging.log_setup import configure_logging
 
@@ -197,13 +197,16 @@ def stream_file_to_fsspec(
                                 break
                             dest_file.write(chunk)
                             bytes_written += len(chunk)
+                            counters.increment_bytes_processed(len(chunk))
                             now = time.monotonic()
                             if progress_log_interval_seconds > 0 and now >= next_progress_log:
                                 elapsed = max(now - start_time, 1e-9)
                                 speed_mib_s = (bytes_written / (1024**2)) / elapsed
+                                percentage_str = (f" : {(bytes_written / expected_size * 100):.1f}% complete"
+                                    if expected_size is not None and expected_size > 0 else "")
                                 logger.info(
                                     f"Streaming {file_path}: {bytes_written / (1024**2):.1f} MiB written "
-                                    f"in {elapsed:.1f}s ({speed_mib_s:.2f} MiB/s)"
+                                    f"in {elapsed:.1f}s ({speed_mib_s:.2f} MiB/s){percentage_str}"
                                 )
                                 next_progress_log = now + progress_log_interval_seconds
                 finally:
@@ -332,9 +335,8 @@ def download_hf(cfg: DownloadConfig) -> None:
             logging.exception(f"Error preparing task for {file}: {e}")
 
     total_files = len(download_tasks)
-    total_size_gb = sum(s for s in file_sizes.values() if s is not None) / (1024**3)
-    logger.info(f"Total number of files to process: {total_files} ({total_size_gb:.2f} GB)")
-
+    total_bytes = sum(s for s in file_sizes.values() if s is not None)
+    logger.info(f"Total number of files to process: {total_files} ({(total_bytes / (1024**3)):.2f} GB)")
     pipeline = (
         Dataset.from_list(download_tasks)
         .map(lambda task: stream_file_to_fsspec(*task))
@@ -342,7 +344,7 @@ def download_hf(cfg: DownloadConfig) -> None:
             f"{cfg.gcs_output_path}/.metrics/success-part-{{shard:05d}}-of-{{total:05d}}.jsonl", skip_existing=True
         )
     )
-    ctx = ZephyrContext(name="download-hf", max_workers=cfg.zephyr_max_parallelism)
+    ctx = ZephyrContext(name="download-hf", max_workers=cfg.zephyr_max_parallelism, total_bytes=total_bytes if total_bytes > 0 else None)
     ctx.execute(pipeline)
 
     # Write Provenance JSON
